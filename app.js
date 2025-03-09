@@ -41,3 +41,12 @@ let dokter = [
   app.get('/', (req, res) => {
     res.send('Selamat datang di API Dokter Rumah Sakit Universitas Syiah Kuala!');
   });
+
+  // GET - Mendapatkan semua dokter
+app.get('/dokter', (req, res) => {
+    res.status(200).json({
+      status: "success",
+      data: dokter
+    });
+  });
+  
