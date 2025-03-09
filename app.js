@@ -91,3 +91,13 @@ app.post('/dokter', (req, res) => {
     nomorLisensi,
     jadwalPraktek
   };
+
+  // Menambahkan ke array dokter
+  dokter.push(newDokter);
+  
+  res.status(201).json({
+    status: "success",
+    message: "Dokter baru berhasil ditambahkan",
+    data: newDokter
+  });
+});
