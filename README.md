@@ -8,8 +8,7 @@ API ini merupakan aplikasi sederhana yang dibuat menggunakan **Node.js** dan **E
 ## 🚀 Instalasi dan Menjalankan Aplikasi
 ### 1️⃣ **Kloning Repository**
 ```sh
-git clone https://github.com/username/api-dokter-rumah-sakit.git
-cd api-dokter-rumah-sakit
+git clone https://github.com/mohdilzam/Tugas-3-Prak-PPL-API-Sederhana.git
 ```
 
 ### 2️⃣ **Instalasi Dependensi**
