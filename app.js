@@ -101,3 +101,17 @@ app.post('/dokter', (req, res) => {
     data: newDokter
   });
 });
+
+// PUT - Mengupdate data dokter
+app.put('/dokter/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const { nama, spesialisasi, nomorLisensi, jadwalPraktek } = req.body;
+    
+    const dokterIndex = dokter.findIndex(d => d.id === id);
+    
+    if (dokterIndex === -1) {
+      return res.status(404).json({
+        status: "failed",
+        message: `Dokter dengan ID ${id} tidak ditemukan`
+      });
+    }
