@@ -115,3 +115,20 @@ app.put('/dokter/:id', (req, res) => {
         message: `Dokter dengan ID ${id} tidak ditemukan`
       });
     }
+    // Update data yang diberikan
+  const updatedDokter = {
+    ...dokter[dokterIndex],
+    nama: nama || dokter[dokterIndex].nama,
+    spesialisasi: spesialisasi || dokter[dokterIndex].spesialisasi,
+    nomorLisensi: nomorLisensi || dokter[dokterIndex].nomorLisensi,
+    jadwalPraktek: jadwalPraktek || dokter[dokterIndex].jadwalPraktek
+  };
+  
+  dokter[dokterIndex] = updatedDokter;
+  
+  res.status(200).json({
+    status: "success",
+    message: "Data dokter berhasil diperbarui",
+    data: updatedDokter
+  });
+});
