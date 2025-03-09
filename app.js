@@ -144,3 +144,14 @@ app.delete('/dokter/:id', (req, res) => {
         message: `Dokter dengan ID ${id} tidak ditemukan`
       });
     }
+
+    // Hapus dokter dari array
+  const deletedDokter = dokter[dokterIndex];
+  dokter.splice(dokterIndex, 1);
+  
+  res.status(200).json({
+    status: "success",
+    message: "Dokter berhasil dihapus",
+    data: deletedDokter
+  });
+});
