@@ -1,0 +1,10 @@
+{
+  "name": "api-dokter-rumah-sakit",
+  "version": "1.0.0",
+  "description": "API sederhana untuk mengelola data dokter di rumah sakit",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
