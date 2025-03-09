@@ -71,3 +71,11 @@ app.get('/dokter/:id', (req, res) => {
   // POST - Menambahkan dokter baru
 app.post('/dokter', (req, res) => {
     const { nama, spesialisasi, nomorLisensi, jadwalPraktek } = req.body;
+
+ // Validasi data
+  if (!nama || !spesialisasi || !nomorLisensi || !jadwalPraktek) {
+    return res.status(400).json({
+      status: "failed",
+      message: "Data dokter tidak lengkap. Harap isi nama, spesialisasi, nomor lisensi, dan jadwal praktek."
+    });
+  }
