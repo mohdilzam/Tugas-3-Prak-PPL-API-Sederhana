@@ -155,3 +155,28 @@ app.delete('/dokter/:id', (req, res) => {
     data: deletedDokter
   });
 });
+
+// GET - Mencari dokter berdasarkan spesialisasi
+app.get('/dokter/spesialisasi/:spesialisasi', (req, res) => {
+    const spesialisasi = req.params.spesialisasi.toLowerCase();
+    const hasilPencarian = dokter.filter(d => 
+      d.spesialisasi.toLowerCase().includes(spesialisasi)
+    );
+    
+    if (hasilPencarian.length > 0) {
+      res.status(200).json({
+        status: "success",
+        data: hasilPencarian
+      });
+    } else {
+      res.status(404).json({
+        status: "failed",
+        message: `Tidak ada dokter dengan spesialisasi ${req.params.spesialisasi}`
+      });
+    }
+  });
+  
+  // Jalankan server
+  app.listen(PORT, () => {
+    console.log(`Server berjalan di port ${PORT}`);
+  });
