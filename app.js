@@ -132,3 +132,15 @@ app.put('/dokter/:id', (req, res) => {
     data: updatedDokter
   });
 });
+
+// DELETE - Menghapus data dokter
+app.delete('/dokter/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const dokterIndex = dokter.findIndex(d => d.id === id);
+    
+    if (dokterIndex === -1) {
+      return res.status(404).json({
+        status: "failed",
+        message: `Dokter dengan ID ${id} tidak ditemukan`
+      });
+    }
