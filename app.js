@@ -49,4 +49,21 @@ app.get('/dokter', (req, res) => {
       data: dokter
     });
   });
-  
+
+  // GET - Mendapatkan satu dokter berdasarkan ID
+app.get('/dokter/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const dokterDitemukan = dokter.find(d => d.id === id);
+    
+    if (dokterDitemukan) {
+      res.status(200).json({
+        status: "success",
+        data: dokterDitemukan
+      });
+    } else {
+      res.status(404).json({
+        status: "failed",
+        message: `Dokter dengan ID ${id} tidak ditemukan`
+      });
+    }
+  });
