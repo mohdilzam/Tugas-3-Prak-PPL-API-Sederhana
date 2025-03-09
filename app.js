@@ -67,3 +67,7 @@ app.get('/dokter/:id', (req, res) => {
       });
     }
   });
+
+  // POST - Menambahkan dokter baru
+app.post('/dokter', (req, res) => {
+    const { nama, spesialisasi, nomorLisensi, jadwalPraktek } = req.body;
