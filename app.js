@@ -79,3 +79,15 @@ app.post('/dokter', (req, res) => {
       message: "Data dokter tidak lengkap. Harap isi nama, spesialisasi, nomor lisensi, dan jadwal praktek."
     });
   }
+
+  // Generate ID baru (ID terakhir + 1)
+  const newId = dokter.length > 0 ? Math.max(...dokter.map(d => d.id)) + 1 : 1;
+  
+  // Membuat objek dokter baru
+  const newDokter = {
+    id: newId,
+    nama,
+    spesialisasi,
+    nomorLisensi,
+    jadwalPraktek
+  };
